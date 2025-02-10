@@ -3,12 +3,6 @@
 $finder = PhpCsFixer\Finder::create()
     ->in([
         __DIR__ . '/src',
-        __DIR__ . '/tests',
-    ])
-
-    ->exclude([
-        __DIR__ . '/tests/_output',
-        __DIR__ . '/tests/Support/_generated',
     ])
 ;
 
@@ -24,10 +18,10 @@ $config->setRules([
         'comment_type' => 'PHPDoc',
         'header' => 'Pimcore' . PHP_EOL . PHP_EOL .
             'This source file is available under following license:' . PHP_EOL .
-            '- GNU General Public License version 3 (GPLv3)' . PHP_EOL .
+            '- Pimcore Commercial License (PCL)' . PHP_EOL .
             PHP_EOL .
             ' @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)' . PHP_EOL .
-            ' @license    http://www.pimcore.org/license     GPLv3'
+            ' @license    http://www.pimcore.org/license     PCL'
     ],
 
     'blank_line_before_statement'         => true,
