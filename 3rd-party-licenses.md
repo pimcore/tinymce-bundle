@@ -10,4 +10,4 @@ which are licensed under their own respective Open-Source licenses.
 
 ### TinyMCE
 License: MIT
-https://github.com/tinymce/tinymce/blob/develop/LICENSE.TXT
+https://github.com/tinymce/tinymce/blob/release/6.7/LICENSE.TXT
