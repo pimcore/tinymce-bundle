@@ -1,5 +1,9 @@
 # Pimcore TinyMCE
 
+> ‼️**IMPORTANT**‼️
+> This bundle is shipped with an unsupported TinyMCE version (6.x) for licensing reasons.
+> TinyMCE 6.x is licensed under the MIT license and can be bundled with this POCL licensed package, but doesn't receive any furter (security) updates (end-of-life).
+> TinyMCE >= 7.x is licensed under incompatible GPL license. 
 
 ## General
 
