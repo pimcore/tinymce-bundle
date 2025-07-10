@@ -1,0 +1,21 @@
+name: Sync changes scheduled from CE to EE
+on:
+  workflow_dispatch:
+
+jobs:
+  sync-branches:
+    uses: pimcore/workflows-collection-public/.github/workflows/reusable-sync-changes.yaml@main
+    if: github.repository == 'pimcore/tinymce-bundle'
+    strategy:
+      fail-fast: false
+      matrix:
+        ref: [{'base': '1.x', 'destination': '1.x'}, {'base': '1.0', 'destination': '1.0'}]
+    with:
+      base_ref: ${{ matrix.ref.base }}
+      ref_name: ${{ matrix.ref.destination }}
+      target_repo: 'ee-tinymce-bundle'
+      auto_merge: true
+    secrets:
+      SYNC_TOKEN: ${{ secrets.SYNC_TOKEN }}
+      GIT_NAME: ${{ secrets.GIT_NAME }}
+      GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
