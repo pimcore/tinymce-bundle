@@ -114,6 +114,7 @@ pimcore.bundle.tinymce.editor = Class.create({
             ],
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
             inline: true,
+            ui_mode: 'split',
             base_url: '/bundles/pimcoretinymce/build/tinymce',
             suffix: '.min',
             convert_urls: false,
