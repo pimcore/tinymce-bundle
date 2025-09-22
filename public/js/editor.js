@@ -30,9 +30,9 @@ pimcore.bundle.tinymce.editor = Class.create({
             } else {
                 this.maxChars = -1;
             }
-            e.detail.config = Object.assign({}, e.detail.config, {ui_mode: 'combined'});
+            e.detail.config = Object.assign({}, {ui_mode: 'combined'}, e.detail.config);
         } else {
-            e.detail.config = Object.assign({}, e.detail.config, {ui_mode: 'split'});
+            e.detail.config = Object.assign({}, {ui_mode: 'split'}, e.detail.config);
         }
 
         this.config = e.detail.config;
