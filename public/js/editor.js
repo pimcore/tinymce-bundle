@@ -63,7 +63,13 @@ pimcore.bundle.tinymce.editor = Class.create({
             language = {};
         }
 
-        const toolbar1 = 'undo redo | blocks | ' +
+        let charCountPlugin = '';
+        if (this.maxChars !== -1) {
+            charCountPlugin = '| wordcount ';
+        }
+
+
+        const toolbar1 = `undo redo ${charCountPlugin} | blocks | ` +
             'bold italic | alignleft aligncenter ' +
             'alignright alignjustify | link hr charmap';
 
