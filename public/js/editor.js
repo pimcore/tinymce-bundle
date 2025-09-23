@@ -23,12 +23,16 @@ pimcore.bundle.tinymce.editor = Class.create({
     },
 
     initializeWysiwyg: function (e) {
+
         if (e.detail.context === 'object') {
             if (!isNaN(e.detail.config.maxCharacters) && e.detail.config.maxCharacters > 0) {
                 this.maxChars = e.detail.config.maxCharacters;
-            }else{
+            } else {
                 this.maxChars = -1;
             }
+            e.detail.config = Object.assign({}, {ui_mode: 'combined'}, e.detail.config);
+        } else {
+            e.detail.config = Object.assign({}, {ui_mode: 'split'}, e.detail.config);
         }
 
         this.config = e.detail.config;
@@ -59,7 +63,13 @@ pimcore.bundle.tinymce.editor = Class.create({
             language = {};
         }
 
-        const toolbar1 = 'undo redo | blocks | ' +
+        let charCountPlugin = '';
+        if (this.maxChars !== -1) {
+            charCountPlugin = '| wordcount ';
+        }
+
+
+        const toolbar1 = `undo redo ${charCountPlugin} | blocks | ` +
             'bold italic | alignleft aligncenter ' +
             'alignright alignjustify | link hr charmap';
 
@@ -114,7 +124,6 @@ pimcore.bundle.tinymce.editor = Class.create({
             ],
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
             inline: true,
-            ui_mode: 'split',
             base_url: '/bundles/pimcoretinymce/build/tinymce',
             suffix: '.min',
             convert_urls: false,
